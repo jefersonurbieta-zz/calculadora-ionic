@@ -1,0 +1,20 @@
+﻿
+<ion-view view-title="Get Ink'd">
+    <ion-content class="im-wrapper">
+      <div class="list">
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Color Buttons
+          </div>
+          <select class="form-control" ng-model="mySelection.colorId" ng-options="color.id as color.name for color in colorList" ng-change="showChange()"></select>
+        </label>
+        <label class="item item-input item-select">
+          <div class="input-label">
+            Form Buttons
+          </div>
+          <select class="form-control" ng-model="mySelection.formId" ng-options="form.id as form.name for form in formList" ng-change="showChange()"></select>
+        </label>
+
+      </div>
+    </ion-content>
+</ion-view>
