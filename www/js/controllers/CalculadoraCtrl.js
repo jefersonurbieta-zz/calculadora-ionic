@@ -2,11 +2,29 @@
     //ionic.material.ink.displayEffect();
     ionicMaterialInk.displayEffect();
 
-  
+
   $scope.operacaoAtual = '';
   $scope.atual = '';
   $rootScope.historico = [];
   $scope.operacao = [];
+  $scope.fontSize = 'font5';
+
+  $scope.ajusteFonteSize = function (){
+    var length = $scope.operacaoAtual.length + $scope.atual.toString().length;
+    if(length <= 8){
+      $scope.fontSize = 'font5';
+    } else if(length > 8 && length <= 16){
+      $scope.fontSize = 'font4';
+    } else if(length > 16 && length <= 24){
+      $scope.fontSize = 'font3';
+    } else if(length > 24 && length <= 32){
+      $scope.fontSize = 'font2';
+    } else if(length > 32){
+      $scope.fontSize = 'font1';
+    }
+    $scope.$apply();
+
+  };
 
   $scope.tratarTeclasDeOperacao = function (operador) {
     switch (operador) {
@@ -22,7 +40,9 @@
           $rootScope.historico.push($scope.operacaoAtual);
           //Limpa os campos e mostra resultado
           $scope.operacaoAtual = '';
-          $scope.atual = $scope.resultado + ' ';
+          $scope.operacao = [];
+          $scope.atual = $scope.resultado;
+          $scope.ajusteFonteSize();
           break;
       case 'c':
         $scope.atual = '';
@@ -30,22 +50,33 @@
         $scope.operacao = [];
         break;
       case 'back':
-        $scope.atual = $scope.atual.substring(0, $scope.atual.length - 1);
+        if(typeof($scope.atual) == 'number'){
+          $scope.atual = $scope.atual + ' ';
+          $scope.atual = $scope.atual.substring(0, $scope.atual.length - 2);
+        } else {
+          $scope.atual = $scope.atual.substring(0, $scope.atual.length - 1);
+        }
+        break;
+      case '+/-':
+        $scope.atual = parseFloat($scope.atual);
+        $scope.atual = $scope.atual * -1;
         break;
       default:
-        if($scope.atual.length > 0){
+        //if($scope.atual.length > 0){
           $scope.operacao.push(parseFloat($scope.atual));
           $scope.operacao.push(operador);
           $scope.operacaoAtual += $scope.atual + ' ' + operador + ' ';
           $scope.atual = '';
-        }
+          $scope.ajusteFonteSize();
+       // }
     }
 
   };
 
   $scope.tratarTeclasDeValor = function (valor) {
-    if($scope.atual.length < 8){
+    if($scope.atual.length < 15){
       $scope.atual += valor.toString();
+      $scope.ajusteFonteSize();
     }
   };
 });

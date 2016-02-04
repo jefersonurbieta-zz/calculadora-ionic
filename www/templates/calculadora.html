@@ -1,43 +1,52 @@
 ﻿
-<ion-view view-title="Ionic Components+">
+<ion-view view-title="Calculadora">
     <ion-content>
       <div class="row">
         <div class="col visor">
-          <div class="historico">{{operacaoAtual}} {{colorButtons}} {{formButtons}}</div>
-          <div class="atual"><p class="pull-right">{{atual}}</p></div>
+          <div class="atual"><p ng-class="fontSize">{{operacaoAtual}}{{atual}}</p></div>
         </div>
       </div>
 
       <div class="buttons-calc">
-        <div class="row">
-          <button class="button col" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeOperacao('c')">C</button>
-          <button class="button col" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeOperacao('/')">/</button>
-          <button class="button col" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeOperacao('x')">X</button>
-          <button class="button col" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeOperacao('back')"><i class="icon ion-backspace-outline"></i></button>
+        <div class="row responsive-sm">
+          <div class="col">
+            <button class="button" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeOperacao('c')">C</button>
+            <button class="button" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeOperacao('/')">/</button>
+            <button class="button" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeOperacao('x')">X</button>
+            <button class="button" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeOperacao('back')"><i class="icon ion-backspace-outline"></i></button>
+          </div>
         </div>
         <div class="row">
-          <button class="button col" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeValor(7)">7</button>
-          <button class="button col" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeValor(8)">8</button>
-          <button class="button col" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeValor(9)">9</button>
-          <button class="button col" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeOperacao('-')">-</button>
+          <div class="col">
+            <button class="button" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeValor(7)">7</button>
+            <button class="button" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeValor(8)">8</button>
+            <button class="button" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeValor(9)">9</button>
+            <button class="button" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeOperacao('-')">-</button>
+          </div>
         </div>
         <div class="row">
-          <button class="button col" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeValor(4)">4</button>
-          <button class="button col" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeValor(5)">5</button>
-          <button class="button col" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeValor(6)" ng-click="addTecla(c)">6</button>
-          <button class="button col" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeOperacao('+')">+</button>
+          <div class="col">
+            <button class="button" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeValor(4)">4</button>
+            <button class="button" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeValor(5)">5</button>
+            <button class="button" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeValor(6)" ng-click="addTecla(c)">6</button>
+            <button class="button" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeOperacao('+')">+</button>
+          </div>
         </div>
         <div class="row">
-          <button class="button col" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeValor(1)">1</button>
-          <button class="button col" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeValor(2)">2</button>
-          <button class="button col" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeValor(3)">3</button>
-          <button class="button col" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeOperacao('()')">( )</button>
+          <div class="col">
+            <button class="button" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeValor(1)">1</button>
+            <button class="button" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeValor(2)">2</button>
+            <button class="button" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeValor(3)">3</button>
+            <button class="button" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeOperacao('()')">( )</button>
+          </div>
         </div>
         <div class="row">
-          <button class="button col" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeValor(0)">0</button>
-          <button class="button col" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeValor('.')">.</button>
-          <button class="button col" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeOperacao('+/-')">+/-</button>
-          <button class="button col" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeOperacao('=')">=</button>
+          <div class="col">
+            <button class="button" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeValor(0)">0</button>
+            <button class="button" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeValor('.')">.</button>
+            <button class="button" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeOperacao('+/-')">+-</button>
+            <button class="button" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeOperacao('=')">=</button>
+          </div>
         </div>
       </div>
     </ion-content>

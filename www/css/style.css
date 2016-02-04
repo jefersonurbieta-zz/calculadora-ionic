@@ -220,19 +220,33 @@ p {
 
 .buttons-calc .row button {
   margin: 5px;
-  height: 75px;
-}
-
-.visor .historico {
-  height: 50px;
-  width: 100%;
 }
 
 .visor .atual {
-  border-top: solid 1px #cccccc;
-  padding-top: 30px;
-  height: 100px;
+  padding-top: 15px;
+  height: 100%;
   width: auto;
+  overflow-x: inherit;
+  overflow-y: scroll;
+  text-align: right;
+}
+
+.visor .atual .font5 {
   font-size: 5em;
 }
 
+.visor .atual .font4 {
+  font-size: 4em;
+}
+
+.visor .atual .font3 {
+  font-size: 3em;
+}
+
+.visor .atual .font2 {
+  font-size: 2em;
+}
+
+.visor .atual .font1 {
+  font-size: 1em;
+}
