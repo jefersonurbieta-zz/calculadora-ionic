@@ -1,66 +1,44 @@
-﻿app.controller('CalculadoraCtrl', function ($scope, $window, $rootScope, ionicMaterialInk) {
+﻿app.controller('CalculadoraCtrl', function ($scope, $window, $rootScope, ionicMaterialInk, Calculo) {
     //ionic.material.ink.displayEffect();
     ionicMaterialInk.displayEffect();
 
+  
   $scope.operacaoAtual = '';
-  $scope.operadorAtual = '';
   $scope.atual = '';
-  $scope.resultado = 0;
-  $scope.fist = true;
   $rootScope.historico = [];
-
-  $scope.calcula = function (operador1, operador2, operando) {
-    switch (operando) {
-      case '+':
-        return operador1 + operador2;
-        break;
-      case '-':
-        return operador1 - operador2;
-        break;
-      case '/':
-        if (operador2 == 0) {
-          return 'NAN'
-        }
-        return operador1 / operador2;
-        break;
-      case 'x':
-        return operador1 * operador2;
-        break;
-    }
-  };
+  $scope.operacao = [];
 
   $scope.tratarTeclasDeOperacao = function (operador) {
     switch (operador) {
       case '=':
-        $scope.resultado = $scope.calcula(parseFloat($scope.resultado), parseFloat($scope.atual), $scope.operadorAtual);
-        $rootScope.historico.push($scope.operacaoAtual + ' ' + $scope.operadorAtual + ' ' + $scope.atual + ' = ' + $scope.resultado);
-        $scope.atual = $scope.resultado;
-        $scope.resultado = 0;
-        $scope.operacaoAtual = '';
-        $scope.operadorAtual = '';
-        $scope.fist = true;
-        break;
+        if($scope.atual.length > 0){
+            $scope.operacao.push(parseFloat($scope.atual));
+            $scope.operacaoAtual += $scope.atual + ' = ';
+          }
+          //Calcula a operacao
+          $scope.resultado = Calculo.calcula($scope.operacao);
+          //grava a operacao no historico
+          $scope.operacaoAtual += $scope.resultado;
+          $rootScope.historico.push($scope.operacaoAtual);
+          //Limpa os campos e mostra resultado
+          $scope.operacaoAtual = '';
+          $scope.atual = $scope.resultado + ' ';
+          break;
       case 'c':
         $scope.atual = '';
-        $scope.resultado = 0;
         $scope.operacaoAtual = '';
-        $scope.operadorAtual = '';
-        $scope.fist = true;
+        $scope.operacao = [];
         break;
       case 'back':
         $scope.atual = $scope.atual.substring(0, $scope.atual.length - 1);
         break;
       default:
-        if($scope.fist){
-          $scope.resultado = parseFloat($scope.atual);
-          $scope.fist = false;
-        } else {
-          $scope.resultado = $scope.calcula(parseFloat($scope.resultado), parseFloat($scope.atual), $scope.operadorAtual);
-
+        if($scope.atual.length > 0){
+          $scope.operacao.push(parseFloat($scope.atual));
+          $scope.operacao.push(operador);
+          $scope.operacaoAtual += $scope.atual + ' ' + operador + ' ';
+          $scope.atual = '';
         }
-        $scope.operacaoAtual += $scope.atual + ' ' + operador + ' ';
-        $scope.atual = '';
-        $scope.operadorAtual = operador;
     }
 
   };
