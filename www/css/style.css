@@ -219,34 +219,40 @@ p {
 }
 
 .buttons-calc .row button {
-  margin: 5px;
+  margin: 0.5%;
+  width: 23%;
+}
+
+.visor .historico {
+  padding-top: 5px;
+  height: 80px;
+  width: 100%;
+  line-height: 200%;
 }
 
 .visor .atual {
-  padding-top: 15px;
-  height: 100%;
+  border-top: solid 1px #cccccc;
+  padding-top: 20px;
+  height: 100px;
   width: auto;
-  overflow-x: inherit;
-  overflow-y: scroll;
-  text-align: right;
 }
 
-.visor .atual .font5 {
+.visor .font5 {
   font-size: 5em;
 }
 
-.visor .atual .font4 {
+.visor .font4 {
   font-size: 4em;
 }
 
-.visor .atual .font3 {
+.visor .font3 {
   font-size: 3em;
 }
 
-.visor .atual .font2 {
+.visor .font2 {
   font-size: 2em;
 }
 
-.visor .atual .font1 {
+.visor .font1 {
   font-size: 1em;
 }

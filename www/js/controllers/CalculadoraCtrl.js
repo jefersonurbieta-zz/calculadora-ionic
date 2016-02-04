@@ -10,17 +10,15 @@
   $scope.fontSize = 'font5';
 
   $scope.ajusteFonteSize = function (){
-    var length = $scope.operacaoAtual.length + $scope.atual.toString().length;
+    var length = $scope.atual.toString().length;
     if(length <= 8){
       $scope.fontSize = 'font5';
-    } else if(length > 8 && length <= 16){
+    } else if(length > 8 && length <= 10){
       $scope.fontSize = 'font4';
-    } else if(length > 16 && length <= 24){
+    } else if(length > 10 && length <= 13){
       $scope.fontSize = 'font3';
-    } else if(length > 24 && length <= 32){
+    } else if(length > 13 ){
       $scope.fontSize = 'font2';
-    } else if(length > 32){
-      $scope.fontSize = 'font1';
     }
     $scope.$apply();
 

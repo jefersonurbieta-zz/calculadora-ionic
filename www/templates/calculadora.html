@@ -3,12 +3,15 @@
     <ion-content>
       <div class="row">
         <div class="col visor">
-          <div class="atual"><p ng-class="fontSize">{{operacaoAtual}}{{atual}}</p></div>
+          <ion-scroll zooming="true" direction="y" class="historico">
+            <div class="historico"><p class="text-right font2">{{operacaoAtual}}<p></div>
+          </ion-scroll>
+          <div class="atual"><p ng-class="fontSize" class="text-right">{{atual}}</p></div>
         </div>
       </div>
 
       <div class="buttons-calc">
-        <div class="row responsive-sm">
+        <div class="row">
           <div class="col">
             <button class="button" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeOperacao('c')">C</button>
             <button class="button" ng-class="[colorButtons.class, formButtons.class]" ng-click="tratarTeclasDeOperacao('/')">/</button>
