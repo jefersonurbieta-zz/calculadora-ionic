@@ -1,0 +1,111 @@
+<ion-header no-border>
+    <ion-toolbar>
+        <ion-title>calculadora</ion-title>
+
+        <ion-buttons slot="end">
+            <ion-button color="secondary">
+                <ion-icon slot="icon-only" name="more"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid class="calc-header">
+        <div class="calc-header-operation ion-text-end">
+            <ion-input [(ngModel)]="operationsValue"></ion-input>
+        </div>
+        <div class="calc-header-result ion-text-end">
+            {{result}}
+        </div>
+    </ion-grid>
+    <ion-row class="calc-body">
+        <ion-col size="9" class="calc-numbers">
+            <ion-row>
+                <ion-col>
+                    <ion-button expand="full" mode="ios" (click)="buttonNumericClick(7)">
+                        7
+                    </ion-button>
+                </ion-col>
+                <ion-col>
+                    <ion-button expand="full" mode="ios" (click)="buttonNumericClick(8)">
+                        8
+                    </ion-button>
+                </ion-col>
+                <ion-col>
+                    <ion-button expand="full" mode="ios" (click)="buttonNumericClick(9)">
+                        9
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-button expand="full" mode="ios" (click)="buttonNumericClick(4)">
+                        4
+                    </ion-button>
+                </ion-col>
+                <ion-col>
+                    <ion-button expand="full" mode="ios" (click)="buttonNumericClick(5)">
+                        5
+                    </ion-button>
+                </ion-col>
+                <ion-col>
+                    <ion-button expand="full" mode="ios" (click)="buttonNumericClick(6)">
+                        6
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-button expand="full" mode="ios" (click)="buttonNumericClick(1)">
+                        1
+                    </ion-button>
+                </ion-col>
+                <ion-col>
+                    <ion-button expand="full" mode="ios" (click)="buttonNumericClick(2)">
+                        2
+                    </ion-button>
+                </ion-col>
+                <ion-col>
+                    <ion-button expand="full" mode="ios" (click)="buttonNumericClick(3)">
+                        3
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-button expand="full" mode="ios" (click)="buttonNumericClick(0)">
+                        0
+                    </ion-button>
+                </ion-col>
+                <ion-col>
+                    <ion-button expand="full" mode="ios">
+                        .
+                    </ion-button>
+                </ion-col>
+                <ion-col>
+                    <ion-button expand="full" mode="ios">
+                        =
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-col>
+        <ion-col size="3" class="calc-operations">
+            <ion-button expand="full" mode="ios" (click)="buttonClearClick()">
+                C
+            </ion-button>
+            <ion-button expand="full" mode="ios" (click)="buttonCalcClick('÷')">
+                ÷
+            </ion-button>
+            <ion-button expand="full" mode="ios" (click)="buttonCalcClick('x')">
+                x
+            </ion-button>
+            <ion-button expand="full" mode="ios" (click)="buttonCalcClick('-')">
+                -
+            </ion-button>
+            <ion-button expand="full" mode="ios" (click)="buttonCalcClick('+')">
+                +
+            </ion-button>
+        </ion-col>
+    </ion-row>
+</ion-content>
